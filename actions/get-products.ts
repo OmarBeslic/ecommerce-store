@@ -8,7 +8,7 @@ interface Query {
   sizeId?:string
   isFeatured?:boolean
 }
-const getproducts = async (query:Query): Promise<Product[]> => {
+const getProducts = async (query:Query): Promise<Product[]> => {
   const url = qs.stringifyUrl({
     url: URL,
     query:{
@@ -22,4 +22,4 @@ const getproducts = async (query:Query): Promise<Product[]> => {
    return res.json();
 
 }
-export default getproducts
+export default getProducts
