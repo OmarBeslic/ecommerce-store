@@ -8,7 +8,7 @@ import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 
 const Summary = () => {
-  const items = useCart(state => state).items;
+  const items = useCart(state => state.items);
   const removeAll = useCart(state => state.removeAll);
   const searchParams = useSearchParams();
   const totalPrice = items.reduce((total, item) => total + Number(item.price), 0);
@@ -48,6 +48,7 @@ const Summary = () => {
       <Button
         onClick={onCheckout}
         className="mt-6 w-full"
+        disabled={items.length === 0}
       >
         Checkout
       </Button>
